@@ -2453,7 +2453,8 @@
           </div>
         </div>
 
-        <form class="contact-form" id="contactForm" method="post" data-endpoint="" action="">
+        <form class="contact-form" id="contactForm" method="post" data-endpoint="/api/contact" action="">
+          <input name="website" type="text" autocomplete="off" tabindex="-1" style="position:absolute;left:-9999px;opacity:0;pointer-events:none;" aria-hidden="true" />
           <input name="name" placeholder="Your Name" aria-label="Your Name" required />
           <input name="email" type="email" placeholder="yourname@email.com" aria-label="Your email" required />
           <textarea name="message" placeholder="Hi, how can I help you?" aria-label="Message" required></textarea>
@@ -2818,7 +2819,23 @@
 
         if(endpoint){
           try{
-            const res = await fetch(endpoint, { method: 'POST', body: fd, headers: { 'Accept': 'application/json' } });
+            const payload = {
+              name: (fd.get('name') || '').toString().trim(),
+              email: (fd.get('email') || '').toString().trim(),
+              message: (fd.get('message') || '').toString().trim(),
+              website: (fd.get('website') || '').toString().trim(),
+              page: window.location.href
+            };
+
+            const res = await fetch(endpoint, {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+              },
+              body: JSON.stringify(payload)
+            });
+
             if(res.ok){
               showToast('Message sent — thank you!');
               contactForm.reset();
