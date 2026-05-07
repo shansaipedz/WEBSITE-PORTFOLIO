@@ -476,6 +476,11 @@
       padding:8px 0 60px;
     }
 
+    main > section{
+      content-visibility:auto;
+      contain-intrinsic-size:1px 900px;
+    }
+
     @media (max-width: 1080px){
       .nav-links{
         position:absolute;
@@ -918,7 +923,7 @@
       <div class="project-grid">
         <a class="project-card" href="https://github.com/shansaipedz/capstone-frontend-ui/tree/feature/frontend-ui" target="_blank" rel="noopener">
           <div class="project-preview">
-            <img src="CAPSTONE.png" alt="Capstone preview">
+            <img src="CAPSTONE.png" alt="Capstone preview" loading="lazy" decoding="async">
             <div class="window-dots"><span></span><span></span><span></span></div>
             <div class="preview-title">Capstone System</div>
           </div>
@@ -937,7 +942,7 @@
 
         <a class="project-card" href="https://github.com/Estemetek/TFK#" target="_blank" rel="noopener">
           <div class="project-preview">
-            <img src="TFK.png" alt="TFK preview">
+            <img src="TFK.png" alt="TFK preview" loading="lazy" decoding="async">
             <div class="window-dots"><span></span><span></span><span></span></div>
             <div class="preview-title">POS + Inventory</div>
           </div>
@@ -956,7 +961,7 @@
 
         <a class="project-card" href="https://github.com/shansaipedz/Mini-AdDU-SIS-Student-Information-System-" target="_blank" rel="noopener">
           <div class="project-preview">
-            <img src="SIS.png" alt="SIS preview">
+            <img src="SIS.png" alt="SIS preview" loading="lazy" decoding="async">
             <div class="window-dots"><span></span><span></span><span></span></div>
             <div class="preview-title">Student System</div>
           </div>
@@ -975,7 +980,7 @@
 
         <a class="project-card" href="https://github.com/shansaipedz/Shopping-Cart" target="_blank" rel="noopener">
           <div class="project-preview">
-            <img src="CART.png" alt="CART preview">
+            <img src="CART.png" alt="CART preview" loading="lazy" decoding="async">
             <div class="window-dots"><span></span><span></span><span></span></div>
             <div class="preview-title">React App</div>
           </div>
@@ -994,7 +999,7 @@
 
         <a class="project-card" href="https://github.com/shansaipedz/React-Filterable-Product-Table" target="_blank" rel="noopener">
           <div class="project-preview">
-            <img src="FILTER.png" alt="FILTER preview">
+            <img src="FILTER.png" alt="FILTER preview" loading="lazy" decoding="async">
             <div class="window-dots"><span></span><span></span><span></span></div>
             <div class="preview-title">React App</div>
           </div>
@@ -1013,7 +1018,7 @@
 
         <a class="project-card" href="https://github.com/shansaipedz/Task-Management-System" target="_blank" rel="noopener">
           <div class="project-preview">
-            <img src="TASK.png" alt="TASK preview">
+            <img src="TASK.png" alt="TASK preview" loading="lazy" decoding="async">
             <div class="window-dots"><span></span><span></span><span></span></div>
             <div class="preview-title">Productivity</div>
           </div>
@@ -1221,54 +1226,8 @@
       progressBar.style.width = progress + '%';
     }
 
-    window.addEventListener('scroll', updateProgress);
+    window.addEventListener('scroll', updateProgress, { passive: true });
     updateProgress();
-  </script>
-  <script>
-  (function(){
-    var bypass = location.hostname === 'localhost' || location.hostname === '127.0.0.1' || location.protocol === 'file:' || /[?&](devtools|allowdev|debug|inspect)=1/.test(location.search);
-    if(bypass) return; // allow DevTools during local testing or when explicitly requested via ?debug=1
-
-    document.addEventListener('contextmenu', function(e){ e.preventDefault(); }, false);
-    document.addEventListener('keydown', function(e){
-      var k = e.key || e.keyCode;
-      if (k === 'F12' || (e.ctrlKey && e.shiftKey && (k === 'I' || k === 'i')) || (e.ctrlKey && (k === 'U' || k === 'u')) || (e.ctrlKey && e.shiftKey && (k === 'J' || k === 'j'))) {
-        e.preventDefault(); e.stopPropagation();
-      }
-    }, false);
-
-    var devtoolsOpen = false;
-    var threshold = 160;
-    function checkDevTools(){
-      var widthDiff = window.outerWidth - window.innerWidth;
-      var heightDiff = window.outerHeight - window.innerHeight;
-      var open = widthDiff > threshold || heightDiff > threshold;
-      if (open && !devtoolsOpen){ devtoolsOpen = true; showDevtoolsOverlay(); }
-      if (!open && devtoolsOpen){ devtoolsOpen = false; hideDevtoolsOverlay(); }
-    }
-
-    function showDevtoolsOverlay(){
-      var overlay = document.getElementById('devtools-blocker');
-      if (!overlay){
-        overlay = document.createElement('div');
-        overlay.id = 'devtools-blocker';
-        Object.assign(overlay.style,{
-          position:'fixed', inset:'0', background:'rgba(0,0,0,0.95)', color:'#fff', zIndex:'999999', display:'flex',
-          alignItems:'center', justifyContent:'center', textAlign:'center', padding:'24px', boxSizing:'border-box'
-        });
-        overlay.innerHTML = '<div style="max-width:720px;"><h2 style="margin:0 0 8px">Access Restricted</h2><p style="margin:0 0 12px">For security reasons viewing page source or developer tools is restricted on this site. Use the published content only.</p></div>';
-        document.documentElement.appendChild(overlay);
-      }
-      overlay.style.display = 'flex';
-    }
-
-    function hideDevtoolsOverlay(){
-      var overlay = document.getElementById('devtools-blocker');
-      if (overlay) overlay.style.display = 'none';
-    }
-
-    setInterval(checkDevTools, 1000);
-  })();
   </script>
 </body>
 </html>

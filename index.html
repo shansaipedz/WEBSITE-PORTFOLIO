@@ -3,12 +3,13 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1, user-scalable=no" />
-  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-  <meta http-equiv="Pragma" content="no-cache" />
-  <meta http-equiv="Expires" content="0" />
-  <title>Shan Sai Pedrozo - IT Student</title>
+  <title>Shan Sai Pedrozo</title>
   <link rel="icon" href="ID.jpg">
   <meta name="description" content="Portfolio of Shan Sai Pedrozo, BS Information Technology Major in Cybersecurity student from Ateneo de Davao University." />
+  <link rel="preconnect" href="https://cdn.getblueshift.com" crossorigin>
+  <link rel="preconnect" href="https://media.licdn.com" crossorigin>
+  <link rel="dns-prefetch" href="//encrypted-tbn0.gstatic.com">
+  <link rel="dns-prefetch" href="//community-test-123.kadakareer.com">
 
   <style>
     :root{
@@ -505,6 +506,11 @@
     section{
       padding:82px 0;
       scroll-margin-top:94px;
+    }
+
+    main > section:not(.hero){
+      content-visibility:auto;
+      contain-intrinsic-size:1px 900px;
     }
 
     .section-head{
@@ -1578,25 +1584,36 @@
       box-shadow:var(--shadow);
       opacity:0;
       pointer-events:none;
-      transform:translateY(10px);
-      transition:.25s ease;
+      transition:opacity .25s ease, background .25s ease, color .25s ease, border-color .25s ease, box-shadow .25s ease;
       z-index:90;
     }
 
     .back-top:hover,
-    .back-top:focus{
+    .back-top:focus-visible{
       background:var(--white);
       color:var(--ink);
-      transform:translateY(-4px);
       box-shadow:0 18px 40px rgba(10,10,10,.08);
       border:2px solid rgba(0, 0, 0, 0.28);
+      outline:none;
+    }
+
+    .back-top:focus{
       outline:none;
     }
 
     .back-top.show{
       opacity:1;
       pointer-events:auto;
-      transform:translateY(0);
+    }
+
+    @media (hover:none){
+      .back-top:hover,
+      .back-top:focus-visible{
+        background:var(--ink);
+        color:var(--white);
+        border:2px solid rgba(0, 0, 0, 0.14);
+        box-shadow:var(--shadow);
+      }
     }
 
     @media (max-width:1080px){
@@ -1721,7 +1738,7 @@
 
       .back-top{
         right:12px;
-        bottom:calc(88px + env(safe-area-inset-bottom, 0px));
+        bottom:calc(14px + env(safe-area-inset-bottom, 0px));
         width:44px;
         height:44px;
         font-size:18px;
@@ -1968,7 +1985,7 @@
       <div class="project-grid reveal">
         <a class="project-card" href="https://github.com/shansaipedz/capstone-frontend-ui/tree/feature/frontend-ui" target="_blank" rel="noopener">
             <div class="project-preview">
-              <img src="CAPSTONE.png" alt="Capstone preview">
+              <img src="CAPSTONE.png" alt="Capstone preview" loading="lazy" decoding="async">
               <div class="window-dots"><span></span><span></span><span></span></div>
               <div class="preview-title">Capstone System</div>
             </div>
@@ -1993,7 +2010,7 @@
 
         <a class="project-card" href="https://github.com/Estemetek/TFK#" target="_blank" rel="noopener">
           <div class="project-preview">
-            <img src="TFK.png" alt="TFK preview">
+            <img src="TFK.png" alt="TFK preview" loading="lazy" decoding="async">
             <div class="window-dots"><span></span><span></span><span></span></div>
             <div class="preview-title">POS + Inventory</div>
           </div>
@@ -2018,7 +2035,7 @@
 
         <a class="project-card" href="https://github.com/shansaipedz/Mini-AdDU-SIS-Student-Information-System-" target="_blank" rel="noopener">
           <div class="project-preview">
-            <img src="SIS.png" alt="SIS preview">
+            <img src="SIS.png" alt="SIS preview" loading="lazy" decoding="async">
             <div class="window-dots"><span></span><span></span><span></span></div>
             <div class="preview-title">Student System</div>
           </div>
@@ -2043,7 +2060,7 @@
 
         <a class="project-card" href="https://github.com/shansaipedz/Shopping-Cart" target="_blank" rel="noopener">
           <div class="project-preview">
-            <img src="CART.png" alt="CART preview">
+            <img src="CART.png" alt="CART preview" loading="lazy" decoding="async">
             <div class="window-dots"><span></span><span></span><span></span></div>
             <div class="preview-title">React App</div>
           </div>
@@ -2084,7 +2101,7 @@
 
       <div class="about-grid reveal">
         <div class="about-image">
-          <img src="ID.jpg" alt="Profile photo">
+          <img src="ID.jpg" alt="Profile photo" loading="lazy" decoding="async">
         </div>
 
         <article class="about-card dark">
@@ -2227,7 +2244,7 @@
           <div>
             <h3>Ateneo de Davao University</h3>
             <p>Bachelor of Science in Information Technology Major in Cybersecurity</p>
-            <p><strong>1x President's List</strong> | <strong>3x Dean's List</strong></p>
+            <p><strong>2x President's List</strong> | <strong>3x Dean's List</strong></p>
           </div>
         </article>
 
@@ -2262,8 +2279,8 @@
         <a class="cert-card" href="https://drive.google.com/file/d/1o9nsRSPhrUjeJ4mqPeH-95XAhK4hZoWL/view" target="_blank" rel="noopener">
           <div>
             <div class="cert-logos" style="display:flex;gap:0;align-items:center;justify-content:center;margin-bottom:10px;">
-              <img src="https://community-test-123.kadakareer.com/uploads/default/original/1X/a7ab203f6257833a2fdf0a76c2c8fa8c27f4f3de.png" alt="Kadakareer Badge" style="width:72px;height:auto;object-fit:contain;margin:0;">
-              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSofkMYMzTuqr9UiZsUns42ryCGwK8TdQm8rg&s" alt="Packetworx Badge" style="width:72px;height:auto;object-fit:contain;margin:0;">
+              <img src="https://community-test-123.kadakareer.com/uploads/default/original/1X/a7ab203f6257833a2fdf0a76c2c8fa8c27f4f3de.png" alt="Kadakareer Badge" style="width:72px;height:auto;object-fit:contain;margin:0;" loading="lazy" decoding="async">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSofkMYMzTuqr9UiZsUns42ryCGwK8TdQm8rg&s" alt="Packetworx Badge" style="width:72px;height:auto;object-fit:contain;margin:0;" loading="lazy" decoding="async">
             </div>
             <h3>KadaKareer x Packetworx course on LoRa/LoRaWAN Foundations and Deployment Frameworks</h3>
             <p>LoRa and LoRaWAN technology, wireless communication protocols, and IoT deployment strategies.</p>
@@ -2274,8 +2291,8 @@
         <a class="cert-card" href="https://drive.google.com/file/d/1G9Acbqhwf6VxsOBZgfS06an_JTzzUklI/view" target="_blank" rel="noopener">
           <div>
             <div class="cert-logos" style="display:flex;gap:0;align-items:center;justify-content:center;margin-bottom:10px;">
-              <img src="https://community-test-123.kadakareer.com/uploads/default/original/1X/a7ab203f6257833a2fdf0a76c2c8fa8c27f4f3de.png" alt="Kadakareer Badge" style="width:72px;height:auto;object-fit:contain;margin:0;">
-              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSofkMYMzTuqr9UiZsUns42ryCGwK8TdQm8rg&s" alt="Packetworx Badge" style="width:72px;height:auto;object-fit:contain;margin:0;">
+              <img src="https://community-test-123.kadakareer.com/uploads/default/original/1X/a7ab203f6257833a2fdf0a76c2c8fa8c27f4f3de.png" alt="Kadakareer Badge" style="width:72px;height:auto;object-fit:contain;margin:0;" loading="lazy" decoding="async">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSofkMYMzTuqr9UiZsUns42ryCGwK8TdQm8rg&s" alt="Packetworx Badge" style="width:72px;height:auto;object-fit:contain;margin:0;" loading="lazy" decoding="async">
             </div>
             <h3>KadaKareer x Packetworx course on Internet of Things Basics, How IoT Devices Communicate, and Overview of IoT Communication Protocols</h3>
             <p>IoT devices, how they communicate, and overview of IoT communication protocols and frameworks.</p>
@@ -2285,7 +2302,7 @@
 
         <a class="cert-card" href="https://cdn.getblueshift.com/bee/images/ed5b8755-0989-4944-9ca5-287bb68e4a22/Challenge%20Completion%20Badge_Light.png" target="_blank" rel="noopener">
           <div>
-            <img src="https://cdn.getblueshift.com/bee/images/ed5b8755-0989-4944-9ca5-287bb68e4a22/Challenge%20Completion%20Badge_Light.png" alt="Challenge Completion Badge">
+            <img src="https://cdn.getblueshift.com/bee/images/ed5b8755-0989-4944-9ca5-287bb68e4a22/Challenge%20Completion%20Badge_Light.png" alt="Challenge Completion Badge" loading="lazy" decoding="async">
             <h3>AWS AI & ML Practitioner Challenge Course</h3>
             <p>AWS AI & ML Scholarship learning challenge.</p>
           </div>
@@ -2294,7 +2311,7 @@
 
         <a class="cert-card" href="https://cdn.getblueshift.com/bee/images/ed5b8755-0989-4944-9ca5-287bb68e4a22/AWS%20AI%20%26%20ML%20Scholarship%20Badges%20-%20Project%20-%20Analyze%20Data%20-%20Dark%403x.jpg" target="_blank" rel="noopener">
           <div>
-            <img src="https://cdn.getblueshift.com/bee/images/ed5b8755-0989-4944-9ca5-287bb68e4a22/AWS%20AI%20%26%20ML%20Scholarship%20Badges%20-%20Project%20-%20Analyze%20Data%20-%20Dark%403x.jpg" alt="AWS AI and ML Scholarship Analyze Data Project Badge">
+            <img src="https://cdn.getblueshift.com/bee/images/ed5b8755-0989-4944-9ca5-287bb68e4a22/AWS%20AI%20%26%20ML%20Scholarship%20Badges%20-%20Project%20-%20Analyze%20Data%20-%20Dark%403x.jpg" alt="AWS AI and ML Scholarship Analyze Data Project Badge" loading="lazy" decoding="async">
             <h3>AWS AI & ML Analyze Data using AI with PartyRock</h3>
             <p>AWS AI & ML Scholarship project badge.</p>
           </div>
@@ -2303,7 +2320,7 @@
 
         <a class="cert-card" href="https://cdn.getblueshift.com/bee/images/ed5b8755-0989-4944-9ca5-287bb68e4a22/AWS%20AI%20%26%20ML%20Scholarship%20Badges%20-%20Project%20-%20Build%20your%20first%20AI%20-%20Dark%403x.jpg" target="_blank" rel="noopener">
           <div>
-            <img src="https://cdn.getblueshift.com/bee/images/ed5b8755-0989-4944-9ca5-287bb68e4a22/AWS%20AI%20%26%20ML%20Scholarship%20Badges%20-%20Project%20-%20Build%20your%20first%20AI%20-%20Dark%403x.jpg" alt="AWS AI and ML Scholarship Build Your First AI Project Badge">
+            <img src="https://cdn.getblueshift.com/bee/images/ed5b8755-0989-4944-9ca5-287bb68e4a22/AWS%20AI%20%26%20ML%20Scholarship%20Badges%20-%20Project%20-%20Build%20your%20first%20AI%20-%20Dark%403x.jpg" alt="AWS AI and ML Scholarship Build Your First AI Project Badge" loading="lazy" decoding="async">
             <h3>AWS AI & ML Build Your First AI Productivity App</h3>
             <p>AWS AI & ML Scholarship project badge.</p>
           </div>
@@ -2312,7 +2329,7 @@
 
         <a class="cert-card" href="https://www.credly.com/badges/2d48a80a-2d43-415a-9b95-741ca73c38a1" target="_blank" rel="noopener">
           <div>
-            <img src="https://media.licdn.com/dms/image/v2/D562DAQGdkBe3_1dyEg/profile-treasury-image-shrink_800_800/B56Z3SSLk4IIAc-/0/1777349475164?e=1777957200&v=beta&t=mtKDVxdDMAQNT7oxr0Z-x8xcoUeCqEnYPyVCqFSN0NQ" alt="Cisco CyberOps Associate Badge">
+            <img src="https://images.credly.com/size/680x680/images/53f37f83-04a1-4935-9b1e-21a99cc6e1b2/CyberOpsAssoc.png" alt="Cisco CyberOps Associate Badge" loading="lazy" decoding="async">
             <h3>Cisco CyberOps Associate</h3>
             <p>Cybersecurity operations and incident response fundamentals.</p>
           </div>
@@ -2321,7 +2338,7 @@
 
         <a class="cert-card" href="https://www.credly.com/badges/4cb52d2e-c0e7-4bf6-8b86-53a446c77ef6" target="_blank" rel="noopener">
           <div>
-            <img src="https://media.licdn.com/dms/image/v2/D562DAQF_Lss0VtkflA/profile-treasury-image-shrink_1920_1920/B56Z3SR8LwH4Ac-/0/1777349412182?e=1777957200&v=beta&t=TY0agkL9nPIG0B3v6gRT7REaH8Nj-thH42wBcu9HO0k" alt="Cisco Cybersecurity Essentials Badge">
+            <img src="https://images.credly.com/size/680x680/images/054913b2-e271-49a2-a1a4-9bf1c1f9a404/CyberEssentials.png" alt="Cisco Cybersecurity Essentials Badge" loading="lazy" decoding="async">
             <h3>Cisco Cybersecurity Essentials</h3>
             <p>Threats, safeguards, network defense, and security practices.</p>
           </div>
@@ -2330,7 +2347,7 @@
 
         <a class="cert-card" href="https://www.credly.com/badges/19a08d90-3967-4b36-a797-39365af11c71" target="_blank" rel="noopener">
           <div>
-            <img src="https://media.licdn.com/dms/image/v2/D562DAQFDId7GTfSjpA/profile-treasury-image-shrink_800_800/B56Z3SRhqsIQAY-/0/1777349303620?e=1777957200&v=beta&t=Zy8NaQ9uHz24wIbuf6kHVmHFIP8Q0mKHbmUS-4p0qUI" alt="Cisco Introduction to Cybersecurity Badge">
+            <img src="https://images.credly.com/size/680x680/images/af8c6b4e-fc31-47c4-8dcb-eb7a2065dc5b/I2CS__1_.png" alt="Cisco Introduction to Cybersecurity Badge" loading="lazy" decoding="async">
             <h3>Cisco Introduction to Cybersecurity</h3>
             <p>Online safety, cyber threats, and basic protection concepts.</p>
           </div>
@@ -2353,18 +2370,18 @@
         <div class="gallery-wrapper">
           <button class="gallery-nav gallery-prev" id="galleryPrev" aria-label="Previous">❮</button>
           <div class="gallery-slider" id="gallerySlider">
-            <div class="gallery-item"><img src="1.png" alt="Photo 1" loading="eager" decoding="async" fetchpriority="high"></div>
-            <div class="gallery-item"><img src="2.png" alt="Photo 2" loading="eager" decoding="async" fetchpriority="high"></div>
-            <div class="gallery-item"><img src="3.png" alt="Photo 3" loading="eager" decoding="async" fetchpriority="high"></div>
-            <div class="gallery-item"><img src="4.png" alt="Photo 4" loading="eager" decoding="async" fetchpriority="high"></div> 
-            <div class="gallery-item"><img src="9.png" alt="Photo 9" loading="eager" decoding="async" fetchpriority="high"></div>
-            <div class="gallery-item"><img src="5.png" alt="Photo 5" loading="eager" decoding="async" fetchpriority="high"></div>
-            <div class="gallery-item"><img src="6.png" alt="Photo 6" loading="eager" decoding="async" fetchpriority="high"></div>
-            <div class="gallery-item"><img src="7.png" alt="Photo 7" loading="eager" decoding="async" fetchpriority="high"></div>
-            <div class="gallery-item"><img src="8.png" alt="Photo 8" loading="eager" decoding="async" fetchpriority="high"></div>
-            <div class="gallery-item"><img src="10.png" alt="Photo 10" loading="eager" decoding="async" fetchpriority="high"></div>
-            <div class="gallery-item"><img src="11.png" alt="Photo 11" loading="eager" decoding="async" fetchpriority="high"></div>
-            <div class="gallery-item"><img src="12.png" alt="Photo 12" loading="eager" decoding="async" fetchpriority="high"></div>
+            <div class="gallery-item"><img src="1.jpg" alt="Photo 1" loading="eager" decoding="async" fetchpriority="high"></div>
+            <div class="gallery-item"><img src="2.jpg" alt="Photo 2" loading="lazy" decoding="async" fetchpriority="low"></div>
+            <div class="gallery-item"><img src="3.jpg" alt="Photo 3" loading="lazy" decoding="async" fetchpriority="low"></div>
+            <div class="gallery-item"><img src="4.jpg" alt="Photo 4" loading="lazy" decoding="async" fetchpriority="low"></div> 
+            <div class="gallery-item"><img src="9.jpg" alt="Photo 9" loading="lazy" decoding="async" fetchpriority="low"></div>
+            <div class="gallery-item"><img src="5.jpg" alt="Photo 5" loading="lazy" decoding="async" fetchpriority="low"></div>
+            <div class="gallery-item"><img src="6.jpg" alt="Photo 6" loading="lazy" decoding="async" fetchpriority="low"></div>
+            <div class="gallery-item"><img src="7.jpg" alt="Photo 7" loading="lazy" decoding="async" fetchpriority="low"></div>
+            <div class="gallery-item"><img src="8.jpg" alt="Photo 8" loading="lazy" decoding="async" fetchpriority="low"></div>
+            <div class="gallery-item"><img src="10.jpg" alt="Photo 10" loading="lazy" decoding="async" fetchpriority="low"></div>
+            <div class="gallery-item"><img src="11.jpg" alt="Photo 11" loading="lazy" decoding="async" fetchpriority="low"></div>
+            <div class="gallery-item"><img src="12.jpg" alt="Photo 12" loading="lazy" decoding="async" fetchpriority="low"></div>
           </div>
           <button class="gallery-nav gallery-next" id="galleryNext" aria-label="Next">❯</button>
         </div>
@@ -2538,27 +2555,6 @@
   const galleryPrev = document.getElementById('galleryPrev');
   const galleryNext = document.getElementById('galleryNext');
   let isScrolling = false;
-  const galleryWarmers = [];
-
-  function warmGalleryImages(){
-    if(!gallerySlider) return;
-    const images = Array.from(gallerySlider.querySelectorAll('.gallery-item img'));
-    images.forEach((img, index) => {
-      if(!img || img.dataset.warmed) return;
-      const src = img.getAttribute('src');
-      if(!src) return;
-      const warmed = new Image();
-      warmed.decoding = 'async';
-      warmed.src = src;
-      galleryWarmers.push(warmed);
-
-      if(warmed.decode){
-        warmed.decode().catch(() => {});
-      }
-
-      img.dataset.warmed = '1';
-    });
-  }
 
   function getScrollAmount(element){
     const firstItem = element.querySelector('.gallery-item');
@@ -2598,12 +2594,10 @@
   if(galleryPrev && galleryNext && gallerySlider) {
     galleryPrev.addEventListener('click', () => {
       smoothScroll(gallerySlider, -1);
-      warmGalleryImages();
     });
 
     galleryNext.addEventListener('click', () => {
       smoothScroll(gallerySlider, 1);
-      warmGalleryImages();
     });
   }
 
@@ -2641,18 +2635,15 @@
 
   // Prefetch on touch/drag start for immediate responsiveness
   gallerySlider.addEventListener('pointerdown', () => {
-    warmGalleryImages();
-    prefetchAdjacent(gallerySlider, getCenterIndex(gallerySlider), 4);
+    prefetchAdjacent(gallerySlider, getCenterIndex(gallerySlider), 3);
   }, {passive:true});
   gallerySlider.addEventListener('touchstart', () => {
-    warmGalleryImages();
-    prefetchAdjacent(gallerySlider, getCenterIndex(gallerySlider), 4);
+    prefetchAdjacent(gallerySlider, getCenterIndex(gallerySlider), 3);
   }, {passive:true});
 
   // Initial prefetch for first visible set
   window.addEventListener('load', () => {
-    warmGalleryImages();
-    prefetchAdjacent(gallerySlider, getCenterIndex(gallerySlider), 4);
+    prefetchAdjacent(gallerySlider, getCenterIndex(gallerySlider), 2);
   });
 
   // Photo modal functionality
@@ -2725,7 +2716,7 @@
       }
     }
 
-    window.addEventListener('scroll', updateProgress);
+    window.addEventListener('scroll', updateProgress, { passive: true });
     updateProgress();
 
     backTop.addEventListener('click', () => {
@@ -2851,28 +2842,6 @@
         }
       });
     }
-  </script>
-  <script>
-    // If accessed remotely (not localhost), append a timestamp to local gallery image URLs
-    // to force browsers on other devices to fetch the latest files during testing.
-    (function(){
-      try{
-        const isRemote = location.hostname !== 'localhost' && location.hostname !== '127.0.0.1' && location.protocol.startsWith('http');
-        if(!isRemote) return;
-        const imgs = document.querySelectorAll('.gallery-slider .gallery-item img');
-        imgs.forEach(img => {
-          try{
-            const raw = img.getAttribute('src');
-            const url = new URL(raw, location.href);
-            if(url.hostname === location.hostname){
-              url.searchParams.set('v', Date.now());
-              img.src = url.toString();
-            }
-          }catch(e){ /* ignore malformed src */ }
-        });
-        console.log('Applied cache-bust to gallery images for remote testing');
-      }catch(e){ console.warn(e); }
-    })();
   </script>
 </body>
 </html>
