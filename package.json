@@ -1,0 +1,12 @@
+{
+  "name": "portfolio-website",
+  "private": true,
+  "scripts": {
+    "format": "prettier --write index.html projects.html",
+    "build:deploy": "powershell -ExecutionPolicy Bypass -File ./scripts/build-deploy.ps1"
+  },
+  "devDependencies": {
+    "html-minifier-terser": "^7.2.0",
+    "prettier": "^3.8.3"
+  }
+}
