@@ -17,6 +17,12 @@
         --line: #e5e5e5;
         --card: #ffffff;
         --white: #ffffff;
+        --button-bg: #ffffff;
+        --button-ink: #0a0a0a;
+        --button-border: #e5e5e5;
+        --button-hover-bg: #f5f5f5;
+        --button-hover-ink: #0a0a0a;
+        --button-hover-border: #0a0a0a;
         --max: 1180px;
         --radius: 24px;
         --shadow: 0 24px 80px rgba(0, 0, 0, 0.08);
@@ -102,6 +108,7 @@
         display: flex;
         align-items: center;
         gap: 10px;
+        order: 1;
         text-decoration: none;
         font-size: 16px;
         font-weight: 900;
@@ -125,6 +132,7 @@
         justify-content: flex-end;
         gap: 8px;
         flex-wrap: wrap;
+        order: 2;
       }
       .nav-links a {
         text-decoration: none;
@@ -142,6 +150,7 @@
       }
       .nav-toggle {
         display: none;
+        order: 4;
         width: 44px;
         height: 44px;
         border: 1px solid var(--line);
@@ -210,13 +219,15 @@
         font-weight: 800;
         cursor: pointer;
         transition: 0.2s ease;
-        background: var(--white);
-        color: var(--ink);
-        border-color: var(--line);
+        background: var(--button-bg);
+        color: var(--button-ink);
+        border-color: var(--button-border);
       }
       .btn:hover {
         transform: translateY(-2px);
-        border-color: var(--ink);
+        background: var(--button-hover-bg);
+        color: var(--button-hover-ink);
+        border-color: var(--button-hover-border);
       }
       .section-label {
         display: inline-flex;
@@ -375,6 +386,152 @@
       @media (max-width: 620px) {
         .projects-desc {
           font-size: 16px;
+        }
+      }
+      .theme-toggle {
+        display: inline-flex;
+        order: 3;
+        margin-left: auto;
+        align-items: center;
+        justify-content: center;
+        gap: 7px;
+        min-height: 44px;
+        padding: 9px 13px;
+        border: 1px solid var(--button-border);
+        border-radius: 999px;
+        background: var(--button-bg);
+        color: var(--button-ink);
+        font: inherit;
+        font-size: 13px;
+        font-weight: 800;
+        cursor: pointer;
+        transition: 0.2s ease;
+      }
+      .theme-toggle:hover {
+        border-color: var(--button-hover-border);
+        background: var(--button-hover-bg);
+        color: var(--button-hover-ink);
+      }
+      @media (min-width: 1081px) {
+        .nav-inner {
+          position: relative;
+        }
+        .nav-links {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          width: max-content;
+          flex-wrap: nowrap;
+          transform: translate(-50%, -50%);
+        }
+      }
+      .btn:focus-visible,
+      .theme-toggle:focus-visible,
+      .social-btn:focus-visible,
+      .nav-toggle:focus-visible {
+        outline: 3px solid #4f9cff;
+        outline-offset: 3px;
+      }
+      .theme-icon {
+        display: inline-grid;
+        place-items: center;
+        width: 18px;
+        height: 18px;
+        font-size: 21px;
+        line-height: 1;
+        transition: transform 0.25s ease;
+        transform-origin: center;
+      }
+      .theme-toggle:hover .theme-icon {
+        transform: translateY(-1px) rotate(18deg) scale(1.12);
+      }
+      .theme-icon::before {
+        content: "\263E";
+      }
+      html[data-theme="dark"] {
+        --bg: #0d1117;
+        --ink: #f3f4f6;
+        --muted: #a4acb8;
+        --soft: #171d26;
+        --line: #2b3440;
+        --card: #141a22;
+        --white: #f3f4f6;
+        --button-bg: #f3f4f6;
+        --button-ink: #0d1117;
+        --button-border: #f3f4f6;
+        --button-hover-bg: #cbd5e1;
+        --button-hover-ink: #0d1117;
+        --button-hover-border: #cbd5e1;
+        --shadow: 0 24px 80px rgba(0, 0, 0, 0.32);
+      }
+      html[data-theme="dark"] .theme-icon::before {
+        content: "\2600";
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .theme-icon {
+          transition: none;
+        }
+      }
+      html[data-theme="dark"] body::before {
+        background:
+          linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+      }
+      html[data-theme="dark"] .nav,
+      html[data-theme="dark"] footer {
+        background: rgba(13, 17, 23, 0.9);
+      }
+      html[data-theme="dark"] .nav {
+        border-color: rgba(243, 244, 246, 0.12);
+      }
+      html[data-theme="dark"] .nav-links {
+        background: rgba(20, 26, 34, 0.98);
+        border-color: rgba(243, 244, 246, 0.12);
+      }
+      @media (min-width: 1081px) {
+        html[data-theme="dark"] .nav-links {
+          background: transparent;
+          border-color: transparent;
+        }
+      }
+      html[data-theme="dark"] .projects-title {
+        color: var(--ink);
+      }
+      html[data-theme="dark"] .projects-desc {
+        color: var(--muted);
+      }
+      html[data-theme="dark"] .breakdown-item {
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02));
+      }
+      html[data-theme="dark"] .breakdown-bar {
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.04));
+      }
+      html[data-theme="dark"] .project-card:hover {
+        border-color: #566171;
+      }
+      html[data-theme="dark"] .project-preview {
+        border-color: rgba(243, 244, 246, 0.12);
+      }
+      html[data-theme="dark"] .footer-panel {
+        background: rgba(20, 26, 34, 0.96);
+        box-shadow: 0 16px 40px rgba(0, 0, 0, 0.22);
+      }
+      html[data-theme="dark"] footer {
+        background: linear-gradient(180deg, rgba(13, 17, 23, 0.96), #0a0d12);
+      }
+      html[data-theme="dark"] .social-btn:hover {
+        background: #cbd5e1;
+        color: #0d1117;
+      }
+      html[data-theme="dark"] .back-top:hover,
+      html[data-theme="dark"] .back-top:focus-visible {
+        background: #cbd5e1;
+        color: #0d1117;
+        border-color: #cbd5e1;
+      }
+      @media (max-width: 1080px) {
+        .theme-toggle {
+          margin-right: 4px;
         }
       }
       @media (max-width: 620px) {
@@ -641,22 +798,24 @@
         height: 18px;
       }
       .btn.ghost {
-        background: var(--white);
-        color: var(--ink);
-        border-color: var(--line);
+        background: var(--button-bg);
+        color: var(--button-ink);
+        border-color: var(--button-border);
       }
       .contact-card .btn.ghost,
       .contact-card .btn.primary,
       .contact-card .btn.secondary {
-        background: var(--white);
-        color: var(--ink);
-        border-color: var(--line);
+        background: var(--button-bg);
+        color: var(--button-ink);
+        border-color: var(--button-border);
       }
       .contact-card .btn.ghost:hover,
       .contact-card .btn.primary:hover,
       .contact-card .btn.secondary:hover {
         transform: translateY(-2px);
-        border-color: var(--ink);
+        background: var(--button-hover-bg);
+        color: var(--button-hover-ink);
+        border-color: var(--button-hover-border);
       }
       .contact-quick {
         display: flex;
@@ -888,6 +1047,9 @@
       <div class="nav-inner">
         <a class="brand" href="index.html#top" aria-label="Go to top"
           ><span>Shan Sai Pedrozo</span> </a
+        ><button class="theme-toggle" id="themeToggle" type="button" aria-label="Enable dark mode">
+          <span class="theme-icon" aria-hidden="true"></span><span class="theme-label">Dark</span>
+        </button
         ><button
           class="nav-toggle"
           id="navToggle"
@@ -1357,13 +1519,13 @@
             <input
               name="email"
               type="email"
-              placeholder="your@email.com"
+              placeholder="youremail@email.com"
               aria-label="Your email"
               required
             />
             <textarea
               name="message"
-              placeholder="Hi — how can I help?"
+              placeholder="Hi, how can I help you?"
               aria-label="Message"
               required
             ></textarea>
@@ -1418,6 +1580,27 @@
       </div>
     </footer>
     <script>
+      const themeToggle = document.getElementById("themeToggle"),
+        themeLabel = themeToggle && themeToggle.querySelector(".theme-label"),
+        savedTheme = localStorage.getItem("portfolio-theme");
+      function applyTheme(theme) {
+        const isDark = theme === "dark";
+        document.documentElement.dataset.theme = isDark ? "dark" : "light";
+        themeToggle &&
+          themeToggle.setAttribute(
+            "aria-label",
+            isDark ? "Enable light mode" : "Enable dark mode",
+          );
+        themeLabel && (themeLabel.textContent = isDark ? "Light" : "Dark");
+      }
+      applyTheme(savedTheme === "dark" ? "dark" : "light");
+      themeToggle &&
+        themeToggle.addEventListener("click", () => {
+          const nextTheme =
+            document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+          localStorage.setItem("portfolio-theme", nextTheme);
+          applyTheme(nextTheme);
+        });
       const progressBar = document.getElementById("progressBar"),
         copyEmailBtn = document.getElementById("copyEmail"),
         contactForm = document.getElementById("contactForm"),
